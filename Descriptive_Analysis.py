@@ -100,7 +100,13 @@ cohort_data = transaction_df\
     ).reset_index()
 
 
-cohort_summary_stats = cohort_data.groupby(['start_month'])
+cohort_summary_stats = cohort_data.groupby(['start_month'])\
+    .agg(
+        CohortSize= ('CustomerID','count'),
+        AverageSales = ('TotalSpend','mean'),
+        AverageFreq = ('Frequency','mean'),
+        MaxDays = ('TimeDiff','max')
+    ).reset_index()
 
 
 
