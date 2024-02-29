@@ -1,0 +1,58 @@
+name: cltv
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.9
+  - pandas
+  - scikit-learn
+  - statsmodels
+  - xgboost
+  - plotly
+  - matplotlib
+  - ipykernel
+  - nbformat
+  - pymc-marketing
+  - pip
+  - pip:
+      - plotnine
+      - pycaret
+      - lifetimes
+      - shap
+      - xarray==2023.10.1
+      - pytimetk
+# python=3.9: This specifies the Python version required for the environment.
+
+# pandas: pandas is a powerful data manipulation and analysis library for Python. It provides data structures and functions to work with structured data.
+
+# scikit-learn: scikit-learn is a machine learning library for Python. It provides simple and efficient tools for data mining and data analysis, including various machine learning algorithms.
+
+# statsmodels: statsmodels is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration.
+
+# xgboost: XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible, and portable. It is used for supervised learning tasks, especially in the realm of gradient boosting.(XGBoost incorporates L1 and L2 regularization,t has built-in capabilities to handle missing values,It supports built-in cross-validation.   In summary, gradient boosting, including XGBoost, improves prediction accuracy by sequentially adding models that correct the errors made by previous ones. This iterative process allows the ensemble to learn complex patterns in the data and make more accurate predictions over time.)
+
+# plotly: plotly is a graphing library for making interactive, publication-quality graphs online.
+
+# matplotlib: matplotlib is a plotting library for Python and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications.
+
+# ipykernel: ipykernel provides the IPython kernel for Jupyter.
+
+# nbformat: nbformat is a Python library for reading and writing Jupyter notebooks.
+
+# pymc-marketing: pymc-marketing is likely a custom package or module for marketing analytics built on top of PyMC, which is a probabilistic programming library.
+
+# pip: pip is the package installer for Python. It is used to install and manage Python packages.
+
+# plotnine: plotnine is a Python implementation of the Grammar of Graphics, allowing highly customizable and expressive plots.
+
+# pycaret: PyCaret is an open-source, low-code machine learning library in Python that automates the machine learning workflow. It is used for building, tuning, and evaluating machine learning models.
+
+# lifetimes: lifetimes is a Python library to analyze customer transactions and retention using probabilistic models.
+
+# shap: shap is a Python library for explaining machine learning models. It provides tools to interpret the output of machine learning models.
+
+# xarray==2023.10.1: xarray is a Python library for labeled, multi-dimensional arrays. This specific version constraint suggests compatibility requirements for the environment.
+
+# pytimetk: pytimetk is likely a custom package or module for time series analysis or manipulation.
+
