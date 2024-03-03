@@ -34,4 +34,28 @@ summary_stats_pa  = lf.utils.summary_data_from_transaction_data(transaction_df2,
                 datetime_col='InvoiceDate',monetary_value_col='TotalPrice')    
 
 #check if there is negative monetary transactions
-summary_stats_pa[summary_stats_pa['monetary_value']<0]
+summary_stats_pa[summary_stats_pa['monetary_value']<=0]
+summary_stats_pa = summary_stats_pa[summary_stats_pa['monetary_value']>0]
+
+
+bgf = lf.BetaGeoFitter(penalizer_coef=0.0)
+
+bgf.fit(summary_stats_pa['frequency'],summary_stats_pa['recency'],summary_stats_pa['T'] )
+
+bgf.summary
+
+summary_stats_pa['probability_alive']=bgf.conditional_probability_alive(summary_stats_pa['frequency'],summary_stats_pa['recency'],summary_stats_pa['T'])
+
+plot_probability_alive_matrix(bgf)
+plt.show()
+
+
+
+ggf = lf.GammaGammaFitter(penalizer_coef=0.0)
+ggf.fit(summary_stats_pa['frequency'],summary_stats_pa['monetary_value'] )
+ggf.summary
+
+summary_stats_pa['sales_profit']=ggf.conditional_expected_average_profit(summary_stats_pa['frequency'],summary_stats_pa['monetary_value'])
+
+
+summary_stats_pa['Predicted_CLV']=ggf.customer_lifetime_value(bgf, summary_stats_pa['frequency'],summary_stats_pa['recency'],summary_stats_pa['T'],summary_stats_pa['monetary_value'], time=4, discount_rate=0.01, freq='D')
