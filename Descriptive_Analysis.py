@@ -109,4 +109,7 @@ cohort_summary_stats = cohort_data.groupby(['start_month'])\
     ).reset_index()
 
 
+#profit considered as the customers lifetime value
+cohort_summary_stats['Customer_CLV']= (cohort_summary_stats['AverageSales']*cohort_summary_stats['AverageFreq']*avg_lifetime)*profit_margin
 
+cohort_summary_stats
